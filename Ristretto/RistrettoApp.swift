@@ -2,18 +2,15 @@ import SwiftUI
 
 @main
 struct TheApp: App {
-    @State var currentNumber: String = "1"
-    
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-        
-        MenuBarExtra(currentNumber, systemImage: "\(currentNumber).square") {
+    var body: some Scene {        
+        MenuBarExtra("Ristretto", systemImage: "cup.and.saucer") {
             Button("Start") {
             }
             Button("Quit") {
+                NSApplication.shared.terminate(nil)
             }
+            Image(systemName: "cup.and.saucer.fill")
         }
+        .menuBarExtraStyle(.window)
     }
 }

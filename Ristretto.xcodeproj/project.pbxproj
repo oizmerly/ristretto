@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0DF07FD829720DC700C1A306 /* RistrettoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF07FD729720DC700C1A306 /* RistrettoApp.swift */; };
-		0DF07FDA29720DC700C1A306 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF07FD929720DC700C1A306 /* ContentView.swift */; };
 		0DF07FDC29720DC900C1A306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF07FDB29720DC900C1A306 /* Assets.xcassets */; };
 		0DF07FDF29720DC900C1A306 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF07FDE29720DC900C1A306 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +15,6 @@
 /* Begin PBXFileReference section */
 		0DF07FD429720DC700C1A306 /* Ristretto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ristretto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF07FD729720DC700C1A306 /* RistrettoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RistrettoApp.swift; sourceTree = "<group>"; };
-		0DF07FD929720DC700C1A306 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0DF07FDB29720DC900C1A306 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DF07FDE29720DC900C1A306 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0DF07FE029720DC900C1A306 /* Ristretto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ristretto.entitlements; sourceTree = "<group>"; };
@@ -53,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				0DF07FD729720DC700C1A306 /* RistrettoApp.swift */,
-				0DF07FD929720DC700C1A306 /* ContentView.swift */,
 				0DF07FDB29720DC900C1A306 /* Assets.xcassets */,
 				0DF07FE029720DC900C1A306 /* Ristretto.entitlements */,
 				0DF07FDD29720DC900C1A306 /* Preview Content */,
@@ -139,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DF07FDA29720DC700C1A306 /* ContentView.swift in Sources */,
 				0DF07FD829720DC700C1A306 /* RistrettoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +268,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Ristretto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,6 +294,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Ristretto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
