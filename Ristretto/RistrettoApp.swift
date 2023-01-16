@@ -15,7 +15,7 @@ struct TheApp: App {
     }
     
     var body: some Scene {
-        MenuBarExtra("App", systemImage: status == .active ? appIconActive : appIconStopped) {
+        MenuBarExtra("Ristretto", systemImage: status == .active ? appIconActive : appIconStopped) {
             AppMenu(app: self)
         }.menuBarExtraStyle(.window).windowResizability(.contentMinSize)
     }
@@ -71,11 +71,14 @@ struct AppMenu: View {
                 toggle()
             }, label: {
                 if status == .stopped {
-                    Label("Start for \(interval)", systemImage: "play.fill").labelStyle(.titleAndIcon)
+                    Label("Start for \(interval)", systemImage: "play.fill").labelStyle(.titleAndIcon).padding(10)
                 } else {
-                    Label("Stop", systemImage: "stop.fill").labelStyle(.titleAndIcon)
+                    Label("Stop", systemImage: "stop.fill").labelStyle(.titleAndIcon).padding(10)
                 }
-            }).frame(maxWidth: .infinity)
+            })
+            .frame(maxWidth: .infinity)
+            
+            Divider()
             
             Button(action: {
                 theApp.stop()
@@ -83,7 +86,7 @@ struct AppMenu: View {
             }, label: {
                 Label("Quit", systemImage: "xmark.circle.fill")
                     .labelStyle(.titleAndIcon).frame(maxWidth: .infinity)
-            }).frame(maxWidth: .infinity)
+            }).frame(maxWidth: .infinity).padding(.leading, 5).padding(.trailing, 5).padding(.bottom, 5)
         }.padding(.top, 10)
     }
 }
