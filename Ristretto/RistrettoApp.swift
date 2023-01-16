@@ -41,7 +41,7 @@ struct TheApp: App {
                 }
                 
                 Button(action: {
-                    toggleScreenSleep()
+                    toggleSleep()
                 }, label: {
                     if status == Status.stopped {
                         Label("Start for \(interval)", systemImage: "play.fill")
@@ -69,17 +69,29 @@ struct TheApp: App {
         }
     }
     
-    func toggleScreenSleep() {
-        status = status == Status.stopped ? Status.running : Status.stopped;
+    func toggleSleep() {
         if status == Status.running {
-            timeRemaining = intervals[interval]!
-            _ = disableScreenSleep()
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { time in
-                timeRemaining -= 1
-            }
+            enableSleep()
         } else {
-            _ = enableScreenSleep()
-            timer?.invalidate()
+            disableSleep()
         }
+    }
+    
+    func disableSleep() {
+        status = Status.running
+        timeRemaining = intervals[interval]!
+        _ = disableScreenSleep()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { time in
+            timeRemaining -= 1
+            if timeRemaining <= 0 {
+                enableSleep()
+            }
+        }
+    }
+    
+    func enableSleep() {
+        status = Status.stopped
+        _ = enableScreenSleep()
+        timer?.invalidate()
     }
 }
