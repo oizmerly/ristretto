@@ -19,7 +19,7 @@ struct TheApp: App {
     
     // the timer
     @State private var timer: Timer?
-    @State private var timeRemaining = 1000
+    @State private var timeRemaining = 0
     
     var body: some Scene {
         MenuBarExtra("Ristretto", systemImage: status == Status.stopped ? "cup.and.saucer" : "cup.and.saucer.fill") {
@@ -81,8 +81,8 @@ struct TheApp: App {
         status = Status.running
         timeRemaining = intervals[interval]!
         _ = disableScreenSleep()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { time in
-            timeRemaining -= 1
+        timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { time in
+            timeRemaining -= 60
             if timeRemaining <= 0 {
                 enableSleep()
             }
