@@ -15,5 +15,6 @@ let predefinedIntervals = [
     "4 hours":    4 * 60 * 60,
     "6 hours":    6 * 60 * 60,
     "8 hours":    8 * 60 * 60,
+    "10 hours":   10 * 60 * 60,
     "12 hours":   12 * 60 * 60
 ]
