@@ -1,7 +1,7 @@
 # Ristretto
 Don’t ask why we need one more app that prevents the Mac from sleeping :) But here there is a new one.
 
-## Release
+## Last Release
 https://github.com/oizmerly/ristretto/tree/main/release
 
 ## Screenshots
@@ -13,3 +13,4 @@ https://github.com/oizmerly/ristretto/tree/main/release
 ```sh
 make build-release
 ```
+The binary is at `./build/Release/Ristretto.app`
