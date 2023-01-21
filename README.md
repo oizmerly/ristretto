@@ -8,3 +8,8 @@ https://github.com/oizmerly/ristretto/tree/main/release
 ![](./screenshot1.png)
 
 ![](./screenshot2.png)
+
+## Build
+```sh
+make build-release
+```
