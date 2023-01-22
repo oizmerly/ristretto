@@ -23,39 +23,21 @@ struct TheApp: App {
 
 struct AppMenu: View {
     private let theApp: TheApp
+    
     @AppStorage("interval") private var interval:String = "1h"
     @State private var status = AppStatus.stopped
-    @State private var timeRemaining = 0
     @State private var timer: Timer?
-    private let timerStep = 60
+    @State private var timeLeft = 0
     
     init(app: TheApp) {
         theApp = app
     }
     
-    private func toggle() {
-        if status == .active {
-            status = .stopped
-            theApp.stop()
-            timer?.invalidate()
-        } else {
-            status = .active
-            theApp.activate()
-            // start the timer
-            timeRemaining = predefinedIntervals[interval]!
-            timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(timerStep), repeats: true) { _ in
-                timeRemaining -= timerStep
-                if timeRemaining <= 0 {
-                    toggle()
-                }
-            }
-        }
-    }
-    
     var body: some View {
         VStack {
             // the title
-            let titleStatus = (status == .active ? "(\(secondsToString(s: timeRemaining)) left)" : "(stopped)")
+            let titleStatus = status == .active ?
+                "(\(secondsToString(s: timeLeft)) left)" : "(stopped)"
             Text("☕ Ristretto " + titleStatus)
 
             Divider()
@@ -88,5 +70,25 @@ struct AppMenu: View {
                     .labelStyle(.titleAndIcon).frame(maxWidth: .infinity)
             }).frame(maxWidth: .infinity).padding(.leading, 5).padding(.trailing, 5).padding(.bottom, 5)
         }.padding(.top, 10)
+    }
+    
+    private func toggle() {
+        if status == .active {
+            status = .stopped
+            theApp.stop()
+            timer?.invalidate()
+        } else {
+            status = .active
+            theApp.activate()
+            // start the timer
+            timeLeft = predefinedIntervals[interval]!
+            let stopAt = Date(timeIntervalSinceNow: Double(timeLeft))
+            timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(60), repeats: true) { _ in
+                timeLeft = Int(stopAt.timeIntervalSinceNow)
+                if (timeLeft <= 0) {
+                    toggle()
+                }
+            }
+        }
     }
 }
